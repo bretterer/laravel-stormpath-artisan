@@ -34,6 +34,6 @@ That's it! You're all set to go. Run the `artisan` command from the Terminal to 
 
 ## FAQ
 
-Q.  HELP!  Im getting an eror when running php artisan stormpath: `"error":{"type":"Symfony\\Component\\Debug\\Exception\\FatalErrorException","message":"Call to a member function get() on a non-object"`...
+Q.  HELP!  Im getting an eror when running php artisan stormpath: `"Call to a member function get() on a non-object"`
 
 A.  Make sure you run `php artisan config:publish lamarus/stormpath-artisan` and include your key and secret in `app/config/packages/lamarus/stormpath-artisan/config.php`
