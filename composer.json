@@ -1,6 +1,7 @@
 {
     "name": "lamarus/stormpath-artisan",
     "description": "Commands to communicate with the Stormpath API",
+    "license": "MIT",
     "authors": [
         {
             "name": "Brian Retterer",
