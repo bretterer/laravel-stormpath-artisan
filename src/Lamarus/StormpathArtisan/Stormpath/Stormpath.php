@@ -27,17 +27,16 @@ abstract class Stormpath {
     public function __construct()
     {
         
-        if(Config::get('stormpath-artisan::id') == '' || Config::get('stormpath-artisan:secret') == '') {
-            print('Please run `php artisan config:publish lamarus/stormpath-artisan` and set your keys');
-            exit;
-        }
-        $this->client = new Client('https://api.stormpath.com/v1',array(
-			'request.options' => array(
-		        'auth'    => array(Config::get('stormpath-artisan::id'), Config::get('stormpath-artisan::secret'), 'Basic')
-		    )
-		));
+        if(Config::get('stormpath-artisan::id') != '' || Config::get('stormpath-artisan:secret') != '') {
+                    
+            $this->client = new Client('https://api.stormpath.com/v1',array(
+                'request.options' => array(
+                    'auth'    => array(Config::get('stormpath-artisan::id'), Config::get('stormpath-artisan::secret'), 'Basic')
+                )
+            ));
 
-		$this->tenants = $this->client->get('tenants/current')->send()->json();
+            $this->tenants = $this->client->get('tenants/current')->send()->json();
+        }
     }
 
 
