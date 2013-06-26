@@ -27,8 +27,8 @@ abstract class Stormpath {
     public function __construct()
     {
         
-        if(Config::get('stormpath-artisan::id') != '' || Config::get('stormpath-artisan:secret') != '') {
-                    
+        if(Config::get('stormpath-artisan::id') == '' || Config::get('stormpath-artisan:secret') == '') {
+        } else {      
             $this->client = new Client('https://api.stormpath.com/v1',array(
                 'request.options' => array(
                     'auth'    => array(Config::get('stormpath-artisan::id'), Config::get('stormpath-artisan::secret'), 'Basic')
