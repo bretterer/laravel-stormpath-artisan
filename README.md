@@ -3,7 +3,7 @@ This Laravel 4 package provides a variety of commands to help you in development
 - `stormpath:application`
 - `stormpath:accounts` <-- Coming Soon
 - `stormpath:groups` <-- Coming Soon
-- `stormpath:directories` <-- Coming Soon
+- `stormpath:directory`
 
 
 ## Installation
