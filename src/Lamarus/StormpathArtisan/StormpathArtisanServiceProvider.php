@@ -31,9 +31,11 @@ class StormpathArtisanServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->registerApplicationCommand();
+		$this->registerDirectoryCommand();
 
 		$this->commands(
-			'stormpath.application'
+			'stormpath.application',
+			'stormpath.directory'
 		);
 	}
 
@@ -48,6 +50,20 @@ class StormpathArtisanServiceProvider extends ServiceProvider {
 			$application = new Stormpath\Application;
 
 			return new Commands\ApplicationCommand($application);
+		});
+	}
+
+	/**
+	 * Register directory command
+	 *
+	 * @return Commands\DirectoryCommand
+	 */
+	protected function registerDirectoryCommand()
+	{
+		$this->app['stormpath.directory'] = $this->app->share(function($app) {
+			$directory = new Stormpath\Directory;
+
+			return new Commands\DirectoryCommand($directory);
 		});
 	}
 
